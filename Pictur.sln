@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pictur", "Pictur\Pictur.csproj", "{3FCEEB82-5F8C-4FB5-9DF7-A991E4946224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicturTest", "PicturTest\PicturTest.csproj", "{57D8A7FB-D43C-4374-8379-B755E811242A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FCEEB82-5F8C-4FB5-9DF7-A991E4946224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCEEB82-5F8C-4FB5-9DF7-A991E4946224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCEEB82-5F8C-4FB5-9DF7-A991E4946224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCEEB82-5F8C-4FB5-9DF7-A991E4946224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D8A7FB-D43C-4374-8379-B755E811242A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D8A7FB-D43C-4374-8379-B755E811242A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D8A7FB-D43C-4374-8379-B755E811242A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D8A7FB-D43C-4374-8379-B755E811242A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
