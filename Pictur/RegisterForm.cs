@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImgurLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,34 +13,26 @@ using System.Windows.Forms;
 
 namespace Pictur
 {
-    public partial class RegisterForm : Form
+    partial class RegisterForm : Form
     {
-        private Imgur imgur;
+        private PicturApp app;
 
-        public RegisterForm(Imgur imgur)
+        public RegisterForm(PicturApp app)
         {
-            this.imgur = imgur;
+            this.app = app;
 
             this.BackgroundImage = Image.FromFile(Resources.BackgroundImagePath);
             this.InitializeComponent();
-
         }
 
         private void authorize_Click(object sender, EventArgs e)
         {
-            this.imgur.RegisterUser();
+            Process.Start(Imgur.GetRegisterUrl(PicturApp.ClientID));
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.imgur.RefreshTokens(this.pinTextBox.Text);
-            }
-            catch (WebException ex)
-            {
-                return;
-            }
+            app.InitTokens(pinTextBox.Text);
 
             this.Close();
         }

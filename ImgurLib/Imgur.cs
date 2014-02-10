@@ -67,5 +67,12 @@ namespace ImgurLib
                 return new Tokens(response.AccessToken, response.RefreshToken, response.ExpiresIn);
             }
         }
+
+        public static string GetRegisterUrl(string clientID)
+        {
+            string baseURL = @"https://api.imgur.com/oauth2/authorize?client_id={0}&response_type=pin";
+
+            return String.Format(baseURL, clientID);
+        }
     }
 }

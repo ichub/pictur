@@ -24,7 +24,7 @@ namespace Pictur
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            PicturApp app = new PicturApp();
+           PicturApp app = new PicturApp();
 
             Application.Run();
         }

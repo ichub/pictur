@@ -36,5 +36,15 @@ namespace ImgurLib
         {
             return Extensions.MembersToString(this);
         }
+
+        public static bool operator ==(Tokens first, Tokens second)
+        {
+            return first.Equals(second);
+        }
+
+        public static bool operator !=(Tokens first, Tokens second)
+        {
+            return !first.Equals(second);
+        }
     }
 }

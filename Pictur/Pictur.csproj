@@ -67,9 +67,6 @@
     <Compile Include="AreaCaptureForm.Designer.cs">
       <DependentUpon>AreaCaptureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Imgur\Token.cs" />
-    <Compile Include="Imgur\TokenHandler.cs" />
-    <Compile Include="Imgur\ImageDetails.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="HotKeyFilter.cs" />
     <Compile Include="HotKeySettings.Designer.cs">
@@ -83,9 +80,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HotKey.cs" />
-    <Compile Include="Imgur\Responses\DetailsResponse.cs" />
-    <Compile Include="Imgur\Responses\TokenResponse.cs" />
-    <Compile Include="Imgur\Imgur.cs" />
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +87,7 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources.cs" />
+    <Compile Include="TokenHandler.cs" />
     <EmbeddedResource Include="AreaCaptureForm.resx">
       <DependentUpon>AreaCaptureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +147,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImgurLib\ImgurLib.csproj">
+      <Project>{6422d6a1-2807-4d92-a7ee-e2c25e89fa90}</Project>
+      <Name>ImgurLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

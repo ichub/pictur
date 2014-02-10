@@ -8,12 +8,16 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImgurLib;
 
 namespace Pictur
 {
     class PicturApp : IDisposable
     {
-        private Imgur imgur;
+        public const string ClientID = "d2dc505559c21ed";
+        public const string ClientSecret = "f6fb0405957614935e7e8d83b91b9c75e41da795";
+
+        private TokenHandler tokenHandler;
         private HotKeyHandler hotKeyHandler;
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
@@ -23,17 +27,27 @@ namespace Pictur
         public PicturApp()
         {
             this.hotKeyHandler = new HotKeyHandler();
-            this.imgur = new Imgur();
+            this.tokenHandler = new TokenHandler();
 
-            //this.MakeRunAtStartup();
             this.AttachHotKeyEvents();
             this.InitTray();
+
+            if (this.tokenHandler.CurrentTokens == Tokens.Empty)
+            {
+                new RegisterForm(this).ShowDialog();
+            }
         }
 
         public void Dispose()
         {
             this.trayIcon.Dispose();
         }
+
+        public void InitTokens(string pin)
+        {
+            this.tokenHandler.UsePin(pin);
+        }
+
 
         private void InitTray()
         {
@@ -91,7 +105,7 @@ namespace Pictur
 
                     if (capture != null)
                     {
-                        ImageDetails details = this.imgur.UploadImage(capture);
+                        ImageDetails details = Imgur.UploadImage(this.tokenHandler.CurrentTokens, capture);
 
                         this.PlayShutterSound();
 
