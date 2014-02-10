@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -24,6 +25,7 @@ namespace Pictur
             this.hotKeyHandler = new HotKeyHandler();
             this.imgur = new Imgur();
 
+            //this.MakeRunAtStartup();
             this.AttachHotKeyEvents();
             this.InitTray();
         }
@@ -121,6 +123,12 @@ namespace Pictur
                 player.SoundLocation = Resources.ShutterSoundPath;
                 player.Play();
             }
+        }
+
+        private void MakeRunAtStartup()
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+            key.SetValue("Pictur", Application.ExecutablePath);
         }
     }
 }
